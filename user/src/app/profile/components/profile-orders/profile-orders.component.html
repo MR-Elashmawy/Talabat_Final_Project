@@ -1,0 +1,35 @@
+<section class="ms-auto me-auto vh-100 pt-1">
+  <div class="container">
+    <div class="row">
+      <div class="btn-group" style="padding-top: 100px;">
+        <a class="btn btn-outline-dark profileBtn" routerLink="/profile">My Profile</a>
+        <a class="btn btn-outline-dark profileBtn" routerLink="/updateProfile/{{userID}}">Update Profile</a>
+        <a class="btn btn-outline-dark profileBtn" routerLink="/orders">My Orders</a>
+      </div>
+
+      <div class="pt-5">
+          <div class="row">
+            
+          
+            <div class="col-md-4 col-sm-12" *ngFor="let order of allOrders">
+              <div class="order">
+                <div class="body">
+                  <h4> Order code: {{order.id}}</h4>
+                  <h4> status: {{order.status}}</h4>
+                  <h4> Total: {{order.total_price}}</h4>
+                  <h4> Date:{{ orderDateTime}}</h4>
+                  <h4> <a routerLink="/orders/{{order.id}}" class="Order_details">Order details</a></h4>
+                </div>
+
+                <div *ngIf="order.status=='Pending'" class="d-flex justify-content-end">
+                  <button type="button" (click)="deletePending(order.id)">Cancel Order</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>   
+      </div>
+    </div>
+  </div>
+</section>
+

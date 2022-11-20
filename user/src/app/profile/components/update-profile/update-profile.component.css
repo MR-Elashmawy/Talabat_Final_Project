@@ -1,0 +1,54 @@
+.user{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: auto;
+  height: 530px;
+  text-decoration: none;
+  color: #333;
+  margin: 15px;
+  margin-bottom: 70px;
+  padding: 10px;
+  border-radius: 10px ;
+  box-shadow: 0px 2px 5px rgba(202, 37, 16, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+h4 {
+  margin-bottom: 10px;
+}
+input{
+  margin-bottom: 10px;
+}
+img{
+  margin-left: 90px;
+
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.box{
+  margin-bottom: 20px;
+}
+
+.profileBtn{
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ff5a00;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.btn:first-child:hover, :not(.btn-check)+.btn:hover {
+  background-color: #ff5a00;
+  color: #fff;
+  border-color: #ff5a00;
+}

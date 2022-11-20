@@ -1,0 +1,12 @@
+.productCard{
+
+  padding: 8px;
+  
+  }
+  .productCard img{
+    padding: -8px;
+  }
+  .productCard a{
+    text-decoration: none;
+    color: #000;
+  }

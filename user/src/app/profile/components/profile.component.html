@@ -1,0 +1,23 @@
+<div class="container vh-100 pt-1">
+  <div class="row" >
+    <div class="btn-group" style="padding-top: 100px;">
+      <a class="btn btn-outline-dark profileBtn" routerLink="/profile/{{userID}}">My Profile</a>
+      <a class="btn btn-outline-dark profileBtn" routerLink="/updateProfile/{{userID}}">Update Profile</a>
+      <a class="btn btn-outline-dark profileBtn" routerLink="/orders">My Orders</a>
+    </div>
+    <div class="col-md-6 col-sm-12 ms-auto me-auto pt-5"  >
+      <div class="user" *ngIf="user;else FalseBlock">
+        <img src="{{user.image}}" alt="">
+        <div class="body">
+          <h4>First Name: {{user.first_name}} </h4>
+          <h4>Last Name: {{user.last_name}}</h4>
+          <h4> E-mail: {{user.email}}</h4>
+          <h4>Gender: {{user.gender}}</h4>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #FalseBlock>
+    <h1 >Loading...</h1>
+  </ng-template>

@@ -1,0 +1,289 @@
+.banner {
+  background-image: url(../../../assets/images/4.png);
+  background-attachment: fixed;
+  height: 75vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.custom_home .logo_div a>img {
+  max-height: 162px;
+  max-width: 162px;
+}
+
+.homeCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.homeCard:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  box-shadow: 1px 1px 15px rgb(107 107 109);
+  z-index: 100;
+}
+
+.guideBtn{
+  /* display: block; */
+  background-color: #ff5a00;
+  color: #fff;
+  border: 1px solid #ff5a00;
+  text-decoration: none;
+  padding: 10px 70px;
+  border-radius: 5px;
+  transition: all .5s;
+}
+
+.guideBtn:hover{
+  background-color: #fff;
+  color: #ff5a00;
+}
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(#000, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    /* -webkit-backdrop-filter: blur(10px); */
+    backdrop-filter: blur(5px);
+    background-color: rgba(#000, .5);
+}
+
+.popup__content{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+
+  width: 39%;
+ /* height: 50rem; */
+  background-color: #fff;
+  box-shadow: rgb(171 169 171) 0px 0px 5px 0px;
+  border-radius: 5px;
+  display: table;
+  overflow: hidden;
+
+  /* border: 1px solid #000; */
+  opacity: 0;
+  transform: translate(-50%,-50%) scale(.25);
+  transition: all .5s .2s;
+}
+
+.heading-primary{
+  color: #ff5a00;
+}
+
+.popup__left{
+  width: 33.333333%;
+  display: table-cell;
+}
+
+.popup__right{
+  width: 66.6666667%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 30px 50px;
+}
+
+.popup__img{
+  display: block;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.popup__text{
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+/* open states */
+.popup:target{
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup:target .popup__content{
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.popup__close:link,
+.popup__close:visited{
+  color: #777;
+  position: absolute;
+  top:5px;
+  right: 20px;
+  font-size: 40px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s;
+  line-height: 1;
+}
+
+.popup__close:hover{
+  color:#ff5a00;
+}
+
+.popupBtn{
+  /* background-color: #ff5a00; */
+  color: #ff5a00;
+  border: 1px solid #ff5a00;
+  text-decoration: none;
+  padding: 2px 10px;
+  border-radius: 3px;
+  transition: all .5s;
+  font-size: 15px;
+
+}
+
+.popupBtn:hover{
+  background-color: #ff5a00;
+  color:#fff ;
+}
+
+.heading-scondary {
+  text-align: center;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #ffa371, #ff5a00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+  margin-bottom: 1rem;
+}
+
+
+* { font-family: Helvetica, Arial, sans-serif; }
+
+.promoBox {
+	display: inline-block;
+	position: relative;
+	margin: 5px;
+	padding: 10px;
+	width: 300px;
+  /* border: 2px solid #ddd; */
+	border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+	background: #ffffff;
+	background: linear-gradient(135deg, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 );
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+}
+
+.promoBox aside {
+	position: absolute;
+	width: 230px;
+	right: 0;
+	margin: 0 -65px 0 0;
+	transform: rotate(35deg);
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+
+
+	color: #fff;
+	background: #4f85bb;
+	background: linear-gradient(135deg, #4f85bb 0%,#4f85bb 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=1 );
+}
+
+.promoImg{
+  width: 275px;
+  height: 130px;
+  /* border-bottom: 1px solid #7e5d0a; */
+  padding: -10px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.promoBox aside p { padding: 10px 80px 10px 80px; margin: 0; }
+.promoBox h4 {
+	font-size: 25px;
+	margin: 0;
+	padding: 0 35% 10px 0;
+	line-height: 25px;
+	border-bottom: 1px solid #ddd;
+
+}
+.promoBox p { font-size: 12px; }
+
+.promoBox .Special{
+  font-size: 18px;
+  margin: 0;
+}
+
+/* COLOR: Box & Text
+\* --------------------------------- */
+.promoBox.info-box {
+	background: #e0f3fa;
+	background: linear-gradient(135deg, #e0f3fa 0%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa', endColorstr='#b6dffd',GradientType=1 );
+	border-color: #b6e1f6;
+}
+.promoBox.info-box h4 { color: #225b9c; border-color: #8dc2dd; }
+
+.promoBox.warning-box {
+	background: #fceabb;
+	background: linear-gradient(135deg, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=1 );
+	border-color: #fccf5a;
+}
+.promoBox.warning-box h4 { color: #775600; border-color: #9e8135; }
+
+.promoBox.danger-box {
+	background: #fff;
+	background: linear-gradient(135deg, #f3925e  0%,#f88b50 50%,#f88b50 51%,#ff5a00 71%,#ff5a00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=1 );
+	border:none;
+	color: #fff;
+}
+.promoBox.danger-box h4 { color: #fff; border-color: #ff706d; }
+
+.promoBox.success-box {
+	background: #9dd53a;
+	background: linear-gradient(135deg, #9dd53a 0%,#a1d54f 50%,#80c217 51%,#7cbc0a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=1 );
+	border-color: #9dd53a;
+	color: #fff;
+}
+.promoBox.success-box h4 { color: #4d690b; border-color: #ccfc5a; }
+
+/* COLOR: Ribbon
+\* --------------------------------- */
+.promoBox.info-ribbon aside {
+	background: #1e5799;
+	background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+}
+
+.promoBox.warning-ribbon aside {
+	background: #f9c667;
+	background: linear-gradient(135deg, #f9c667 0%,#f79621 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', endColorstr='#f79621',GradientType=1 );
+}
+
+.promoBox.danger-ribbon aside {
+	background: #ff3019;
+	background: linear-gradient(45deg, #ff3019 0%,#cf0404 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 );
+}
+
+.promoBox.success-ribbon aside {
+	background: #a9db80;
+	background: linear-gradient(135deg, #a9db80 0%,#96c56f 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=1 );
+}

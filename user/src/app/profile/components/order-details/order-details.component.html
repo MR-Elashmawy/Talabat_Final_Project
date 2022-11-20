@@ -1,0 +1,72 @@
+<section class="ms-auto me-auto vh-100 pt-1">
+    <div class="container">
+        <div class="row">
+            <div class="btn-group" style="padding-top: 100px;">
+                <a class="btn btn-outline-dark profileBtn" routerLink="/profile">My Profile</a>
+                <a class="btn btn-outline-dark profileBtn" routerLink="/updateProfile/{{userID}}">Update Profile</a>
+                <a class="btn btn-outline-dark profileBtn" routerLink="/orders">My Orders</a>
+            </div>
+
+            <div class="pt-5">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12" *ngFor="let product of products;">
+
+                    <main class="order__summary">
+                        <!-- div for hero image -->
+                        <div class="order__summary-image">
+                            <img width="150" src="{{product.image}}" alt="">
+                        </div>
+
+                        <!-- Main content start -->
+                        <h1>{{product.title}}</h1>
+                        <!-- <p class="description">
+                  You can now listen to millions of songs, audiobooks, and podcasts on any
+                  device anywhere you like!
+                </p> -->
+                        <!-- div for order plan -->
+                        <div class="order__summary-plan">
+                            <!-- <img src="images/icon-music.svg" aria-hidden="true" alt="music" /> -->
+                            <div class="plan">
+                                <!-- <h2>Annual Plan</h2> -->
+                                <p>Price: {{product.price}}</p>
+                                <ng-container *ngFor="let details of orderDetails">
+                                    <p>Quantity: {{details.quantity}}</p>
+                                </ng-container>
+                            </div>
+
+                        </div>
+                        
+                        <!-- <a href="#">Change</a>
+                        <button>Proceed to Payment</button>
+                        <button>Cancel Order</button> -->
+
+                    </main>
+
+                </div>
+                    <!--   
+            <div class="col-md-4" *ngFor="let product of products;">
+                <div class="order">
+                    <div class="body">
+                        <div class="col-12">
+                            <img width="150" src="{{product.image}}" alt="">
+                            <p>Name: {{product.title}}</p>
+                            <p>Price: {{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+                    <!-- <div class="col-md-4" *ngFor="let details of orderDetails;">
+                <div class="order">
+                    <div class="body">
+                        <div class="col-6">
+                            <p>Quantity: {{details.quantity}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

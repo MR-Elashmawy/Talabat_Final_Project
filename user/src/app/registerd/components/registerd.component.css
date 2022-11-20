@@ -1,0 +1,23 @@
+img {
+    height: 70px;
+    width: 70px;
+}
+
+.btn, .btn:hover {
+    background-color: #ff5a00 !important;
+    color: white !important;
+    font-size: 1.2rem;
+}
+
+
+.successMSG {
+    background-color: #ff5a00;
+    opacity: .7;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 9999px;
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+}

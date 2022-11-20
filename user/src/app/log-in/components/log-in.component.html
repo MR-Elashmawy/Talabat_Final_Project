@@ -1,0 +1,50 @@
+<section class="d-flex vh-100 py-5 mb-5">
+  <div class="container py-2">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="mt-5 col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Login</h3>
+            <form class="mx-1 mx-md-4" [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="row">
+                <div class="col-12 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="email" id="form3Example4c" formControlName="email"
+                      [ngClass]="email.errors && (email.touched || email.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your email..."
+                      [ngClass]="!email.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="email.errors && (email.touched || email.dirty)">
+                      Please enter a valid email address
+                    </p>
+                    <p class="text-danger" *ngIf="errorMsg">
+                      {{errorMsg}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-outline">
+                    <input type="password" id="form3Example3c" formControlName="password"
+                      [ngClass]="password.errors && (password.touched || password.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your password..."
+                      [ngClass]="!password.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="password.errors && (password.touched || password.dirty)">
+                      Password must be atleast 8 characters
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-1 pt-2">
+                <input class="btn w-100" type="submit" value="Login" />
+              </div>
+            </form>
+            <p class="text-center mt-5">
+              Don't have an account? <span><a routerLink="/register">Create an account</a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

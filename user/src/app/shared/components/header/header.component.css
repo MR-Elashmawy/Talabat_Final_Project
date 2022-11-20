@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #323232;
+  font-size: 13px;
+  direction: ltr;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.dropdown-toggle {
+  border: none !important;
+}
+
+.dropdown-menu {
+  background-color: #FF9459;
+}
+
+.dropdown-menu  a{
+  font-size: 1.2rem !important;
+}
+/* *********************start style navbar ************** */
+.nav_sec {
+  background-color: #ff5a00;
+  line-height: 3em;
+}
+
+.nav_sec .container nav .container-fluid .collapse ul .custom_li a {
+  padding: 0px 20px;
+  height: 44px;
+  color: rgb(255, 255, 255);
+}
+
+.nav_sec .container nav .container-fluid .collapse ul .custom_li a:hover {
+  color: rgb(244, 244, 235);
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+
+.nav_sec .container nav .container-fluid .collapse ul .login {
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.nav_sec .container nav .container-fluid .collapse ul .login:hover {
+  background-color: #FF9459;
+}
+
+.navbar .navbar-toggler {
+  color: rgba(255, 255, 255, .55);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.navbar-toggler:hover {
+  text-decoration: none;
+}
+
+#divone {
+  display: none;
+  position: fixed;
+  /* background-color: rgb(134, 129, 125); */
+}
+
+#lione:hover #divone {
+  background-color: #ff5a00;
+  display: flex;
+  opacity: 1;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+/******************** end style navbar ******************** */
+
+@media (max-width:575.999px) {
+  .card {
+    width: 80%;
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    /* display: inline; */
+  }
+
+  .category1 {
+    display: none;
+  }
+
+  .category2 {
+    width: 450px;
+  }
+
+  #inp2 {
+    width: 100%;
+  }
+
+  #span1 {
+    margin-top: 10%;
+  }
+
+  #inp1 {
+    width: 80%;
+    padding: 3%;
+    border: 1px;
+    border-radius: 10px;
+  }
+
+  #inp2 {
+    width: 73%;
+    padding: 5%;
+    border: 1px;
+    /* border-radius: 10px; */
+  }
+
+  button[type="search"] {
+    width: 20%;
+    padding: 3%;
+    border: 1px;
+    border-radius: 10px;
+  }
+
+}

@@ -1,0 +1,40 @@
+#span1 {
+  width: 98%;
+  background-color: white;
+  border: 1px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: x-large;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+#span2{
+  width: 22%;
+  background-color:rgb(255, 68, 0) ;
+    color:white;
+    border: 1px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: x-large;
+}
+button[type="search"] {
+  float: right;
+  width: 6%;
+  padding: 1%;
+  border: 1px;
+  border-radius: 2px;
+}
+
+#inp1 {
+  float: right;
+  width: 22%;
+  padding: 1%;
+  border: 1px;
+  border-radius: 2px;
+}
+#select {
+  width: 22%;
+  padding: 1%;
+  border: 1px;
+  border-radius: 10px;
+}

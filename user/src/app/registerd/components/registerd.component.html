@@ -1,0 +1,163 @@
+<section class="vh-110 py-5 mb-5">
+  <div class="container py-2">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="mt-5 col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Create an Account</h3>
+            <form method="post" class="mx-1 mx-md-4" [formGroup]="registerForm" (ngSubmit)="register()">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="firstName"
+                      [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your first name"
+                      [ngClass]="!firstName.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="firstName.errors && (firstName.touched || firstName.dirty)">
+                      First name must be valid!
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="lastName"
+                      [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your last name"
+                      [ngClass]="!lastName.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="lastName.errors && (lastName.touched || lastName.dirty)">
+                      Last name must be valid!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="email" id="form3Example4c" formControlName="email"
+                      [ngClass]="email.errors && (email.touched || email.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your email..."
+                      [ngClass]="!email.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="email.errors && (email.touched || email.dirty)">
+                      Email must be valid!
+                    </p>
+                    <p class="col-12 text-danger" *ngIf="duplicatedEmail">
+                      {{duplicatedEmail}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pb-2">
+                  <div class="form-outline">
+                    <input type="password" id="form3Example3c" formControlName="password"
+                      [ngClass]="password.errors && (password.touched || password.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your password..."
+                      [ngClass]="!password.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="password.errors && (password.touched || password.dirty)">
+                      Password must be valid! (Ex: Password@123)
+                    </p>
+                    <p class="col-12 text-danger" *ngIf="passwordMatching">
+                      {{passwordError}}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="password" id="confirmPassword" formControlName="confirmPassword"
+                      [ngClass]="confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your confirm password"
+                      [ngClass]="!confirmPassword.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback"
+                      *ngIf="confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty)">
+                      Confirm password must be valid!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="phone"
+                      [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your mobile number"
+                      [ngClass]="!phone.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="phone.errors && (phone.touched || phone.dirty)">
+                      Phone must be valid!
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <h6 class="mb-2 pb-1">Gender: <span class="text-danger">*</span></h6>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="maleGender"
+                      value="male" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                      id="femaleGender" value="female" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+                  <p class="text-danger" *ngIf="gender.errors && (gender.touched || gender.dirty)">
+                    Gender required
+                  </p>
+                </div>
+                
+              <div class="row">
+                <div class="col-md-3 pb-2">
+                  <div class="form-outline">
+                    <input type="text" formControlName="city"
+                      [ngClass]="city.errors && (city.touched || city.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your city"
+                      [ngClass]="!city.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback" *ngIf="city.errors && (city.touched || city.dirty)">
+                      City required
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-9 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="text" formControlName="address"
+                      [ngClass]="address.errors && (address.touched || address.dirty) ? 'is-invalid' : ''"
+                      class="form-control" placeholder="Enter your address"
+                      [ngClass]="!address.errors  ? 'is-valid' : ''" />
+                    <p class="invalid-feedback"
+                      *ngIf="address.errors && (address.touched || address.dirty)">
+                      Address required
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-md-6 mb-4">
+                  <h6 class="mb-2 pb-1">Upload your photo (optional)</h6>
+                  <img *ngIf="userImage" src="{{userImage}}">
+                  <input class="form-control form-control-sm" id="formFileSm" type="file"
+                    (change)="imageSelected($event)">
+                  <p class="text-danger" *ngIf="imgExtensionInvalid">
+                    {{errorMsg}}
+                  </p>
+                </div>
+              </div>
+
+
+
+              <div class="mt-1 pt-2">
+                <input class="btn w-100" type="submit" value="Register" />
+              </div>
+            </form>
+            <div class="row">
+              <div *ngIf="successMsg" class="col-12 successMSG">
+                {{successMsg}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

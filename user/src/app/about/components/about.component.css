@@ -1,0 +1,37 @@
+.slider_one {
+  padding-top: 60px;
+}
+
+.slider_one .container .first {
+  animation: in_down 4s ease;
+  -webkit-animation: in_down 4s ease;
+}
+
+.slider_one .container .first .content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.layout-container {
+  margin: 0px auto 20px;
+  max-width: 1000px;
+  background: rgb(255, 255, 255);
+  height: 100%;
+  box-shadow: rgb(171 169 171) 0px 0px 5px 0px;
+  overflow: auto;
+  min-height: calc(100vh - 250px);
+}
+
+.aboutLogo{
+    display: inline-block;
+    height: 25px;
+    width: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.revImg{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

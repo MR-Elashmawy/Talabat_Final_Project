@@ -1,0 +1,55 @@
+<!-- ################## start navbar ########### -->
+  <section class="nav_sec fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/"><img src="../assets/images/logo.svg" alt="sorry not found"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav" id="myBtnContainer">
+              <li class="nav-item ml-4 custom_li">
+                <a routerLink="/" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item ml-4 custom_li" id="lione">
+                <a  routerLink="/services" class="nav-link active" aria-current="page" >Services</a>
+              </li>
+              <li class="nav-item ml-4 custom_li">
+                <a  routerLink="/about" class="nav-link">About us</a>
+              </li>
+              <li class="nav-item ml-4 custom_li">
+                <a  routerLink="/contact" class="nav-link">Contact us </a>
+              </li>
+              <li *ngIf='(!authentication.isLoggedIn)' class="nav-item ml-4 custom_li login">
+                <a routerLink="/login" class=""> Log in </a>
+              </li>
+              <li  *ngIf='(authentication.isLoggedIn)' class="nav-item ml-4 custom_li login ">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item ml-4 custom_li">
+                      <a routerLink="/profile" class="nav-link text-white">Profile</a>
+                    </li>
+                    <li class="nav-item ml-4 custom_li">
+                      <a (click)="logout()" routerLink="/" class="nav-link text-white"> Logout</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ml-4 custom_li">
+                <a routerLink="/cart" class="nav-link">
+                  <span class="fa fa-shopping-cart" id="cart_icon" style="color:azure"></span>
+                  <span style="color:azure" class="cart-counter"> {{getProductLength()}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <!-- ##################end navbar ######################## -->
