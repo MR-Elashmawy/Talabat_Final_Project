@@ -1,0 +1,189 @@
+<div class="content-wrapper">
+  <section class="ms-2">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-primary">New Product</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="" routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a a href="" routerLink="/dashboard/products">All Products</a></li>
+              <li class="breadcrumb-item active">Add new product</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <form [formGroup]="form" (ngSubmit)="addProduct()">
+      <!-- (change)="testProduct()" -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Name" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label>Details</label>
+        <textarea class="form-control" rows="5" formControlName="details" placeholder="Enter Details">
+        </textarea>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Type</label>
+            <input type="text" class="form-control" placeholder="Enter Type" formControlName="type" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" class="form-control" placeholder="Enter Price" formControlName="price" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Category</label>
+            <select class="form-select form-select-sm" (change)="selectCat($event)">
+              <option selected #restaurant value="Restaurants">Restaurants</option>
+              <option #bakeries value="Bakeries">Bakeries</option>
+              <option #markets value="Markets">Markets</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Service</label>
+            <select class="form-select form-select-sm" formControlName="category_id">
+              <ng-container *ngFor="let category of categories">
+                <option value="{{category.id}}">{{category.title}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Status</label>
+            <select class="form-select form-select-sm" name="status" formControlName="status">
+              <option selected value="1">Available</option>
+              <option value="0">Not Available</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12">
+          <label>Image</label>
+        </div>
+        <div class="col-6">
+          <input value="{{file}}" class="form-control form-control-sm" type="file" (change)="addImage($event)">
+        </div>
+        <div class="col-6">
+          <img *ngIf="productImage" src="{{productImage}}" style="width: 100px;" alt="product_image">
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Add</button>
+    </form>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+    <div *ngIf="error" class="alert flush alert-danger alert-dismissible fade show mt-2 text-center" role="alert">
+      {{error}}
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div class="content-wrapper">
+  <section class="ms-2 vh-100">
+    <div class="row justify-content-center align-items-center ">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Add a new product</h3>
+             ************************************************************************ 
+            <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="addProduct()">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="title" class="form-control" placeholder="Enter product name" />
+                  </div>
+                </div>
+                 Price 
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="price" class="form-control" placeholder="Enter product price" />
+                  </div>
+                </div>
+              </div>
+               Description 
+              <div class="row">
+                <div class="col-md-12 pb-2">
+                  <div class="form-outline">
+                    <textarea type="details" id="form3Example3c" formControlName="details" class="form-control"
+                      placeholder="Enter product description..."></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" formControlName="type" class="form-control" placeholder="Enter product type" />
+                  </div>
+                </div>
+                <div class="col-md-6 pb-2">
+                  <div class="form-outline">
+
+                    <label class="me-2" for="">Category Name</label>
+                    <select name="category_id" formControlName="category_id">
+                      <option value="1">Category Name</option>
+                    </select>
+
+                  </div>
+                </div>
+                 Image 
+                <div class="col-md-6 mb-4">
+                  <h6 class="mb-2 pb-1">Upload product photo </h6>
+                  <img src="{{productImage}}" style="width: 150px;" alt="product_image">
+                  <input class="form-control mt-2" type="file" (change)="addImage($event)">
+                </div>
+              </div>
+               ADD BTN 
+              <div class="mt-1 pt-2">
+                <input class="btn btn-primary w-100" type="submit" value="Add product" />
+              </div>
+            </form>
+            //////////////////////////////////////////////////////////////////// 
+            <div *ngIf="alert" class="alert alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+              Product Has Been Added Successfully.
+              <button (click)="closeAlert()" type="button" class="close xbtn" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+ -->

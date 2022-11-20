@@ -1,0 +1,10 @@
+
+  .layout-container {
+    margin: 0px auto 20px;
+    max-width: 1000px;
+    background: rgb(255, 255, 255);
+    height: 100%;
+    box-shadow: rgb(171 169 171) 0px 0px 5px 0px;
+    overflow: auto;
+    min-height: calc(100vh - 250px);
+  }

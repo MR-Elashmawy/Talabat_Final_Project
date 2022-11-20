@@ -1,0 +1,30 @@
+<div class="layout-container mt-5">
+  <h1 class="text-center my-5 fs-3 fw-bold">Talabat Dashboard</h1>
+  <div class="col-lg-4 col-md-6 col-sm-8 mx-auto mb-4">
+    <div class="col-12">
+      <form action="" (ngSubmit)="login()">
+        <div class="row mb-3">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" [(ngModel)] = "email" id="email" class="form-control">
+            <div class="text-sm text-danger">
+              {{errorMsg}}
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" [(ngModel)] = "password" id="password" class="form-control">
+          </div>
+  
+          <div class="form-group mb-2">
+            <button type="submit" class="btn btn-outline-dark">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <!--????????????????????????/ end ?????????????????????? -->

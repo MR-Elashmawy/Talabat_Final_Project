@@ -1,0 +1,113 @@
+<div class="content-wrapper" *ngIf="!loading">
+  <section class="ms-2">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-warning">Edit Service</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="" routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a a href="" routerLink="/dashboard/services">All Services</a></li>
+              <li class="breadcrumb-item active">Edit service</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <form [formGroup]="editCategory" (submit)="collection()">
+
+      <div class="d-flex justify-content-center">
+        <img width="175" src="{{serviceImage}}" alt="service_image">
+      </div>
+
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" placeholder="Enter Title" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" placeholder="Description" formControlName="description" />
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" class="form-control" placeholder="Enter City" formControlName="city" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" placeholder="Enter Location" formControlName="location" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-4">
+          <div class="form-group">
+            <label>Telephone Number</label>
+            <input type="text" class="form-control" placeholder="Enter Phone" formControlName="telephone_number" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" placeholder="Enter Phone" formControlName="phone_number" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group">
+            <label>Phone Number 2 (optional)</label>
+            <input type="text" class="form-control" placeholder="Enter Phone" formControlName="phone_number_2" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mt-3">
+            <label class="me-3">Category Type</label>
+            <select class="form-select form-select-sm" name="category_type" formControlName="category_type">
+              <option selected value="Restaurants">Restaurants</option>
+              <option value="Bakeries">Bakeries</option>
+              <option value="Markets">Markets</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group mt-3">
+            <label class="me-3">Status</label>
+            <select class="form-select form-select-sm" name="status" formControlName="status">
+              <option selected value="1">Available</option>
+              <option value="0">Not Available</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Update Image</label>
+        <input class="form-control" type="file"
+        (change)="updateImage($event)">
+      </div>
+
+
+      <button type="submit" class="btn btn-warning mt-2" (click)="showSuccess()">Update</button>
+    </form>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+
+    <div *ngIf="error" class="alert flush alert-danger alert-dismissible fade show mt-2 text-center" role="alert">
+      {{error}}
+    </div>
+    
+  </section>
+</div>
+<div class="container text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

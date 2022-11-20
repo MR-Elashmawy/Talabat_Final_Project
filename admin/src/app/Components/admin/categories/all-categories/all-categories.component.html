@@ -1,0 +1,91 @@
+<div class="content-wrapper" *ngIf="!loading">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">All Services</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item active">All services</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <section class="mx-2">
+    <div class="my-3">
+      <a class="btn btn-primary" routerLink="/dashboard/services/add">
+        Add New Service
+      </a>
+    </div>
+
+
+    <div class="input-group mb-3">
+      <span class="input-group-prepend">
+        <div class="input-group-text bg-transparent border-right-0">
+          <i class="fa fa-search"></i>
+        </div>
+      </span>
+      <input class="form-control py-2 border-left-0 border" type="search"  placeholder="Search Service" [(ngModel)]="searchText"
+      autocomplete="off">
+      <span class="input-group-append">
+        <button class="btn btn-outline-primary border-left-0 border" type="button">
+         Search
+        </button>
+      </span>
+    </div>
+
+    <table class="table thead-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">City</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Category</th>
+          <th scope="col">Status</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of collection | filter:searchText; let tableID = index">
+          <td>{{tableID+1}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.city}}</td>
+          <td>{{item.telephone_number}}</td>
+          <td>{{item.phone_number}}</td>
+          <td>{{item.category_type}}</td>
+          <td style="color: rgb(7, 175, 7);" *ngIf="item.status == 1">
+            Available
+          </td>
+          <td style="color: red;" *ngIf="item.status == 0">
+            Not Available
+          </td>
+
+          <td class="d-flex">
+            <a class="btn btn-sm btn-warning me-3" routerLink="/dashboard/services/edit/{{item.id}}">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <form action="/dashboard/products/restaurants/">
+              <button class="btn btn-sm btn-danger" (click)="deleteResto(item.id)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+
+  </section>
+</div>
+<div class="container text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

@@ -1,0 +1,94 @@
+<div class="content-wrapper" *ngIf="!loading">
+  <section class="ms-2">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-warning">Edit Product</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="" routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a a href="" routerLink="/dashboard/products">All Products</a></li>
+              <li class="breadcrumb-item active">{{product.title}}</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <form [formGroup]="editProduct" (ngSubmit)="updateProduct()">
+      <div class="d-flex justify-content-center">
+        <img width="175" src="{{productImage}}" alt="product_image">
+      </div>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Name" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label>Details</label>
+        <textarea class="form-control" rows="5" formControlName="details" placeholder="Enter Details">
+        </textarea>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Type</label>
+            <input type="text" class="form-control" placeholder="Enter Type" formControlName="type" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" class="form-control" placeholder="Enter Price" formControlName="price" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Category</label>
+            <select class="form-select form-select-sm" (change)="selectCat($event)">
+              <option  value="Restaurants">Restaurants</option>
+              <option  value="Bakeries">Bakeries</option>
+              <option  value="Markets">Markets</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Service</label>
+            <select class="form-select form-select-sm" formControlName="category_id">
+              <ng-container *ngFor="let category of categories">
+                <option value="{{category.id}}">{{category.title}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="form-group mt-3">
+            <label class="me-3">Status</label>
+            <select class="form-select form-select-sm" name="status" formControlName="status">
+              <option selected value="1">Available</option>
+              <option value="0">Not Available</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input class="form-control mt-2" value="{{file}}" type="file" (change)="updateImage($event)">
+      </div>
+      <button type="submit" class="btn btn-warning mt-2">Update</button>
+    </form>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+  </section>
+</div>
+
+<div class="container text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

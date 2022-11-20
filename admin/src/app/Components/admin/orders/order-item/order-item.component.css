@@ -1,0 +1,11 @@
+label {
+    font-weight: bold;
+}
+
+.flush {
+    position: fixed;
+    z-index: 5000;
+    top: 5px;
+    right: 5px;
+    width: 30%;
+}

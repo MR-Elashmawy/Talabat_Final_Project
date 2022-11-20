@@ -1,0 +1,48 @@
+<div class="content-wrapper" *ngIf="!loading">
+  <section class="ms-2">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-secondary">Product Details</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="" routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a a href="" routerLink="/dashboard/products">All Products</a></li>
+              <li class="breadcrumb-item active">{{product.title}}</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <div *ngIf="product" class="product w-75">
+      <img src="{{product.image}}" alt="">
+      <h4>Product Name: <span>{{product.title}}</span></h4>
+      <h4>Product Description: <span>{{product.details}}</span></h4>
+      <h4>Product Price: <span>{{product.price}} EGP</span></h4>
+      <h4>Product Type: <span>{{product.type}}</span></h4>
+      <h4>Service Name: <span>{{categoryName}}</span></h4>
+      <h4 *ngIf="product.status == 0">Product Status: <span>Not Available</span></h4>
+      <h4 *ngIf="product.status == 1">Product Status: <span>Available</span></h4>
+      <h4>Added At: <span>{{product.created_at}}</span></h4>
+    <div class="d-flex gap-4 pb-3">
+        <a class="btn btn-warning text-white" title="Edit" routerLink="/dashboard/products/edit/{{product.id}}">
+          Edit
+        </a>
+      <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+          Delete
+      </button>
+    </div>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+  </div>
+  </section>
+</div>
+<div class="container text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

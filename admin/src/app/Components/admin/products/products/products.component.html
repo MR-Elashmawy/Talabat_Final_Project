@@ -1,0 +1,72 @@
+<div class="content-wrapper" *ngIf="!loading">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>All Products</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item active">All products</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <section class="mx-2">
+
+    <div class="my-3">
+      <a class="btn btn-primary" routerLink="/dashboard/products/add">
+        Add New Product
+      </a>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-prepend">
+        <div class="input-group-text bg-transparent border-right-0">
+          <i class="fa fa-search"></i>
+        </div>
+      </span>
+      <input class="form-control py-2 border-left-0 border" type="search"  placeholder="Search Product" [(ngModel)]="searchText"
+      autocomplete="off">
+      <span class="input-group-append">
+        <button class="btn btn-outline-primary border-left-0 border" type="button">
+         Search
+        </button>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3" *ngFor="let product of products | filter:searchText;">
+        <div class="item">
+          <img src="{{product.image}}" alt="product_img">
+          <div class="body">
+            <h4> {{product.title}}</h4>
+          </div>
+
+          <div class="d-flex justify-content-evenly">
+            <a class="action" title="View" routerLink="/dashboard/products/{{product.id}}">
+              <i class="text-success bi bi-eye-fill ">
+              </i>
+            </a>
+            <a class="action" title="Edit" routerLink="/dashboard/products/edit/{{product.id}}">
+              <i class="text-warning bi bi-pencil-square"></i>
+            </a>
+            <a routerLink="/dashboard/products" (click)="deleteProduct(product.id)" class="action" title="Delete">
+              <i class="text-danger bi bi-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="msg" class="alert flush alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+      {{msg}}
+    </div>
+
+  </section>
+</div>
+<div class="container text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

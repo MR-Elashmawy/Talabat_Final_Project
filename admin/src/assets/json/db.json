@@ -1,0 +1,88 @@
+{
+  "orders": [
+    {
+      "username": "Tarek Khalifa",
+      "date": "01/10/2022",
+      "price": "2500",
+      "details": "test",
+      "status": "Accepted",
+      "id": 1
+    },
+    {
+      "username": "Tarek",
+      "date": "01/10/2022",
+      "price": "1000",
+      "details": "test",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "username": "Noha",
+      "date": "01/10/2022",
+      "price": "3000",
+      "details": "test",
+      "status": "Accepted",
+      "id": 3
+    },
+    {
+      "username": "Omar",
+      "date": "01/11/2022",
+      "price": "5000",
+      "details": "test",
+      "status": "Pending",
+      "id": 4
+    },
+    {
+      "username": "Mohamed",
+      "date": "22/10/2022",
+      "price": "1000",
+      "details": "test",
+      "status": "Rejected",
+      "id": 5
+    }
+  ],
+  "admins": {
+    "id": "admin@iti.com",
+    "password": "123456"
+  },
+  "users": [
+    {
+      "id": "tarek@yahoo.com",
+      "first_name": "Tarek",
+      "last_name": "Khalifa",
+      "email": "tarek@yahoo.com",
+      "password": "Tarek@123",
+      "gender": "male",
+      "image": "default.png"
+    }
+  ],
+  "All Services": [
+    {
+      "id": 1,
+      "image": "../images/Groovy.png",
+      "name": "Groovy",
+      "category": "Restuarants",
+      "location": "Mansoura",
+      "description": "Fast Food, Sandwiches, Burgers",
+      "status": "Accepted",
+      "Menue": [
+        {
+          "id": 1,
+          "image": "../images/Mexican_burger637809096634451963.webp",
+          "name": "Deal Box",
+          "details": "3 Crispy chicken strips pieces with French fries, rice, bread and Groovy sauce.",
+          "price": "EGP 49.99",
+          "type": "most selling"
+        },
+        {
+          "id": 2,
+          "image": "../images/Cheesy Fries.png",
+          "name": "Cheesy Fries",
+          "details": "Thousand Island Sauce",
+          "price": "EGP 33.00",
+          "type": "most selling"
+        }
+      ]
+    }
+  ]
+}
